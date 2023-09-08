@@ -27,17 +27,23 @@
                            <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                         <!--Cart option-->
-                        <li class="nav-item">
-                           <a class="nav-link" href="contact.html">Login</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="contact.html">Register</a>
-                        </li>
-                    <form class="form-inline">
+                        <form class="form-inline">
                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                            <i class="fa fa-search" aria-hidden="true"></i>
                            </button>
-                    </form>
+                        </form>
+                        @if (Route::has('login'))
+                        @auth
+                        <x-app-layout></x-app-layout>
+                        @else
+                        <li class="nav-item">
+                              <a class="nav-link" id="logincss" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>
+                        @endauth
+                        @endif
                 </ul>
             </div>
         </nav>
