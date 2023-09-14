@@ -34,7 +34,11 @@
                         </form>
                         @if (Route::has('login'))
                         @auth
-                        <x-app-layout></x-app-layout>
+                        <li class="nav-item">
+                        <a class="nav-link" id="logincss" href="{{ url('/redirect') }}">Dashboard</a>
+                        </li>
+                        <x-app-layout>
+                        </x-app-layout>
                         @else
                         <li class="nav-item">
                               <a class="nav-link" id="logincss" href="{{ route('login') }}">Login</a>

@@ -149,6 +149,9 @@
                 </div>
               </li>
               <li>
+                <li class="nav-item">
+                  <a class="nav-link" id="logincss" href="{{ url('/') }}">Home</a>
+                </li>
                 <x-app-layout>
                 </x-app-layout>
               </li>
