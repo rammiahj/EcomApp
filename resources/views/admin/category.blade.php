@@ -14,6 +14,13 @@
         .input_color{
             color: black;
         }
+        .tab1{
+          margin: auto;
+          width: 50%;
+          text-align: center;
+          margin-top: 30px;
+          border: 3px solid purple;
+        }
     </style>
   </head>
   <body>
@@ -33,6 +40,7 @@
                 {{session()->get('message')}}
               </div>
             @endif
+            <!-- add category form -->
                 <div class="div_center">
                     <h2 class="h2_font">Add Category</h2>
                     <form action="{{url('/add_category')}}" method="POST">
@@ -41,6 +49,23 @@
                         <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
                     </form>
                 </div>
+            <!-- add category form ends -->
+            <!-- view category table begins -->
+            <div class="table-responsive">
+                <table class="tab1">
+                    <tr>
+                      <td>Category</td>
+                      <td>Action</td>
+                    </tr>
+                    @foreach($categories as $category)
+                    <tr>
+                      <td>{{$category->Category_name}}</td>
+                      <td><a class="btn btn-primary" href="">Update</a> &nbsp; <a class="btn btn-danger" href="">Delete</a></td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+            <!-- view category table ends -->
             </div>
         </div>
         <!-- main-panel ends -->
