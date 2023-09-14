@@ -34,10 +34,15 @@
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
-            @if(session()->has('message'))
+            @if(session()->has('success'))
               <div class="alert alert-success">
               <button type="button" class="close" data-dismiss="alert" area-hidden="true">x</button>
-                {{session()->get('message')}}
+                {{session()->get('success')}}
+              </div>
+            @elseif(session()->has('error'))
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert" area-hidden="true">x</button>
+                {{session()->get('error')}}
               </div>
             @endif
             <!-- add category form -->
@@ -60,7 +65,8 @@
                     @foreach($categories as $category)
                     <tr>
                       <td>{{$category->Category_name}}</td>
-                      <td><a class="btn btn-primary" href="">Update</a> &nbsp; <a class="btn btn-danger" href="">Delete</a></td>
+                      <td><a class="btn btn-primary" href="{{url('/edit_category',$category->id)}}">Update</a> &nbsp; 
+                          <a onclick="return confirm('Are you sure?')" class="btn btn-danger" href="{{url('/delete_category',$category->id)}}">Delete</a></td>
                     </tr>
                     @endforeach
                 </table>
